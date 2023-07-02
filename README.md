@@ -10,3 +10,7 @@ Deletes discord message that include a twitter link, replacing it with "vxtwitte
 DISCORD_TOKEN={Bot Token}
 
 Include in same directory as VXBot.py.
+
+# TBD Possible Features
+- Dockerize the application to work consistenly across different systems
+- Look into Discord bot sharding
