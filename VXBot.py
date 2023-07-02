@@ -1,4 +1,5 @@
 import os
+import datetime
 import logging
 import logging.handlers
 
@@ -28,7 +29,7 @@ async def on_message(message):
             new_message = f"From {message.author.mention} {message.content[0:8]}vx{message.content[8:]}"
             await message.channel.send(new_message, silent=True)
             await message.delete()
-    except:
-        logger.debug(new_message)
+    except Exception as e:
+        logger.error(f"{datetime.now()}: {e}\t{message}")
         
 client.run(TOKEN)
