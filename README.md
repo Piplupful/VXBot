@@ -8,4 +8,4 @@ Deletes discord message that include a twitter link, replacing it with "vxtwitte
 
 DISCORD_TOKEN={Bot Token}
 
-Include in same directory as XVBot.py.
+Include in same directory as VXBot.py.
