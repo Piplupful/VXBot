@@ -5,6 +5,7 @@ Deletes discord message that include a twitter link, replacing it with "vxtwitte
 
 # Environment File (.env):
 \# .env
+
 DISCORD_TOKEN={Bot Token}
 
 Include in same directory as XVBot.py.
