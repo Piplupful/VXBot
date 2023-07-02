@@ -26,7 +26,9 @@ async def on_message(message):
         if(message.author.id == client.user.id):
             return
         if("https://twitter.com/" in message.content):
-            new_message = f"From {message.author.mention} {message.content[0:8]}vx{message.content[8:]}"
+            #To maintain original message, find twitter link index
+            twit_idx = message.content.index("https://twitter") + 8
+            new_message = f"From {message.author.mention}: {message.content[0:twit_idx]}vx{message.content[twit_idx:]}"
             await message.channel.send(new_message)
             await message.delete()
     except Exception as e:
