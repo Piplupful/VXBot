@@ -35,7 +35,7 @@ async def on_message(message):
         elif("https://x.com" in message.content and "/status/" in message.content):
             #To maintain original message, find x link index
             x_idx = message.content.index("https://x") + 8
-            new_message = f"From {message.author.mention}: {message.content[0:x_idx]}fixv{message.content[x_idx:]}"
+            new_message = f"From {message.author.mention}: {message.content[0:x_idx]}vxtwitter{message.content[x_idx + 1:]}"
             #await message.channel.send(new_message.split("?", 1)[0])
             await message.channel.send(new_message)
             await message.delete()
