@@ -20,25 +20,34 @@ logger.setLevel(logging.DEBUG)
 handler = logging.handlers.RotatingFileHandler("log/errors.log", maxBytes=1024, backupCount=2)
 logger.addHandler(handler)
 
+async def send_message(original_message, fixed_message):
+    await original_message.channel.send(fixed_message)
+    await original_message.delete()
+
 @client.event
 async def on_message(message):
     try:
         if(message.author.id == client.user.id):
             return
+        
+        new_message = None
+
         if("https://twitter.com/" in message.content and "/status/" in message.content):
             #To maintain original message, find twitter link index
             twit_idx = message.content.index("https://twitter") + 8
-            new_message = f"From {message.author.mention}: {message.content[0:twit_idx]}vx{message.content[twit_idx:]}"
-            #await message.channel.send(new_message.split("?", 1)[0])
-            await message.channel.send(new_message)
-            await message.delete()
+            new_message = f"From {message.author.mention}: {message.content[0:twit_idx]}vx{message.content[twit_idx:]}".split('?s=',1)[0]
         elif("https://x.com" in message.content and "/status/" in message.content):
             #To maintain original message, find x link index
             x_idx = message.content.index("https://x") + 8
-            new_message = f"From {message.author.mention}: {message.content[0:x_idx]}vxtwitter{message.content[x_idx + 1:]}"
-            #await message.channel.send(new_message.split("?", 1)[0])
-            await message.channel.send(new_message)
-            await message.delete()
+            new_message = f"From {message.author.mention}: {message.content[0:x_idx]}vxtwitter{message.content[x_idx + 1:]}".split("?s=",1)[0]
+        elif("https://www.tiktok.com/" in message.content):
+            #To maintain original message, find o in tiktok index
+            tik_idx = message.content.index("https://www.tiktok") + 16
+            new_message = f"From {message.author.mention}: {message.content[0:tik_idx]}x{message.content[tik_idx + 1:]}"
+        
+        if new_message:
+            await send_message(message, new_message)
+            
     except Exception as e:
         logger.error(f"{datetime.now()}: {e}\t{message}")
         
