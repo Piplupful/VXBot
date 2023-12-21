@@ -16,3 +16,4 @@ This is the Discord link to add [VXBot](https://discord.com/api/oauth2/authorize
 
 # Credit
 Based off the work done by [@dylanpdx](https://twitter.com/pdxdylan) on [BetterTwitFix](https://github.com/dylanpdx/BetterTwitFix).
+[tiktxk](https://github.com/Britmoji/tiktxk)
