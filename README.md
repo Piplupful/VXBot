@@ -1,5 +1,6 @@
 # VXBot
 Auto fixes Twitter links to include "vx" before "twitter" and "x".
+Auto fixes Tiktok links to "tiktxk".
 
 Deletes Discord message that include a twitter link, replacing it with "vxtwitter" or "fixvx". The bot's message include the original sender's name and the new vxtwitter link.
 
