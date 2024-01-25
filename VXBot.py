@@ -35,11 +35,11 @@ async def on_message(message):
         if("https://twitter.com/" in message.content and "/status/" in message.content):
             #To maintain original message, find twitter link index
             twit_idx = message.content.index("https://twitter") + 8
-            new_message = f"From {message.author.mention}: {message.content[0:twit_idx]}vx{message.content[twit_idx:]}".split('?s=',1)[0]
+            new_message = f"From {message.author.mention}: {message.content[0:twit_idx]}vx{message.content[twit_idx:]}"
         elif("https://x.com" in message.content and "/status/" in message.content):
             #To maintain original message, find x link index
             x_idx = message.content.index("https://x") + 8
-            new_message = f"From {message.author.mention}: {message.content[0:x_idx]}vxtwitter{message.content[x_idx + 1:]}".split("?s=",1)[0]
+            new_message = f"From {message.author.mention}: {message.content[0:x_idx]}vxtwitter{message.content[x_idx + 1:]}"
         elif("https://www.tiktok.com/" in message.content):
             #To maintain original message, find o in tiktok index
             tik_idx = message.content.index("https://www.tiktok") + 16
